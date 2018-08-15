@@ -70,11 +70,14 @@ public class Runner {
         DBHelper.save(student5);
         DBHelper.save(student6);
 
+        List<Lesson> availableLessonsStudent1 = DBStudent.getAvailableLessonsFor(student1);
+
         DBStudent.addStudentToLesson(student1, lesson1);
         DBStudent.addStudentToLesson(student2, lesson1);
         DBStudent.addStudentToLesson(student3, lesson1);
         DBStudent.addStudentToLesson(student1, lesson2);
         DBStudent.addStudentToLesson(student1, lesson3);
+        DBStudent.addStudentToLesson(student1, lesson6);  // shouldn't be allowed???
 
         List<Lesson> course1Lessons = DBCourse.getLessonsOf(course1);
         List<Student> course1Students = DBCourse.getStudentsOf(course1);

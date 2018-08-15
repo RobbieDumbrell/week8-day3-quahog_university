@@ -1,5 +1,6 @@
 package models;
 
+import db.DBCourse;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;

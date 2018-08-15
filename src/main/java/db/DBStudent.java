@@ -14,8 +14,11 @@ public class DBStudent {
     private static Session session;
 
     public static void addStudentToLesson(Student student, Lesson lesson){
-        lesson.addStudent(student);
-        DBHelper.update(lesson);
+//        List<Lesson> avalaibleLessons = DBStudent.getAvailableLessonsFor(student);
+//        if (avalaibleLessons.contains(lesson)){
+            lesson.addStudent(student);
+            DBHelper.update(lesson);
+//        }
     }
 
     public static List<Lesson> getLessonsFor(Student student){
@@ -32,5 +35,10 @@ public class DBStudent {
             session.close();
         }
         return results;
+    }
+
+    public static List<Lesson> getAvailableLessonsFor(Student student) {
+       List<Lesson> results = DBCourse.getLessonsOf(student.getCourse());
+       return results;
     }
 }
